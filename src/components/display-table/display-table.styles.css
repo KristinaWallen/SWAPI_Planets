@@ -1,0 +1,45 @@
+.wrapper-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+  grid-auto-rows: minmax(50px, auto);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+  grid-auto-rows: minmax(50px, auto);
+  border-top: 1px solid #dfdfdf;
+  font-size: 17px;
+}
+.one {
+  grid-column: 1;
+  margin: auto;
+}
+.two {
+  grid-column: 2;
+  margin: auto;
+}
+.three {
+  grid-column: 3;
+  margin: auto;
+}
+.four {
+  grid-column: 4;
+  margin: auto;
+}
+.five {
+  grid-column: 5;
+  margin: auto;
+}
+.six {
+  grid-column: 6;
+  margin: auto;
+}
+.seven {
+  grid-column: 7;
+  margin: auto;
+}

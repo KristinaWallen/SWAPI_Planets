@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import {useEffect, useState} from 'react';
+import DisplayTable from './components/display-table/display-table.component';
+import BarChart from './components/bar-chart/bar-chart.component';
 import './App.css';
 
 function App() {
+  const [url, setUrl] = useState('https://swapi.dev/api/planets/?page=1');
+  const [planets, setPlanets] = useState([]);
+  const [next, setNext] = useState('');
+  const [previous, setPrevious] = useState(null);
+
+  useEffect(() => {
+    fetch(url)
+    .then(data => data.json())
+    .then(data => {
+      console.log(data);
+      setPlanets(data.results);
+      setPrevious(data.previous);
+      setNext(data.next);
+    })
+  },[url])
+
+  const handleLessClick = () => {
+    setUrl(previous);
+  }
+  
+  const handleMoreClick = () => {
+    setUrl(next);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Star Wars Planets</h1>
+     <DisplayTable planets={planets}/>
+     {previous && <button className='display-button' onClick={handleLessClick}>Previous</button>}
+     {next && <button className='display-button' onClick={handleMoreClick}>Next</button>}
+     <BarChart planets={planets}/>
     </div>
   );
 }

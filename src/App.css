@@ -28,11 +28,13 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.display-button {
+  border-radius: 12px;
+  background-color: lightblue;
+	padding: 5px 12px;
+	width: 120px;
+	font-size: 15px;
+	color: black;
+	margin: 15px;
 }
+
